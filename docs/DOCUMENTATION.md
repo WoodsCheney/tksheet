@@ -2446,20 +2446,20 @@ There are certain other span attributes which have an impact on the data returne
 Some more complex examples of data retrieval:
 
 ```python
-"single cell"
+# single cell
 cell_a1_data = self.sheet["A1"].data
 
-"entire sheet including headers and index"
+# entire sheet including headers and index
 entire_sheet_data = self.sheet["A1"].expand().options(header=True, index=True).data
 
-"header data, no table or index data"
+# header data, no table or index data
 # a list of displayed header cells
 header_data = self.sheet["A:C"].options(table=False, header=True).data
 
 # a header value
 header_data = self.sheet["A"].options(table=False, hdisp=False, header=True).data
 
-"index data, no table or header data"
+# index data, no table or header data
 # a list of displayed index cells
 index_data = self.sheet[:3].options(table=False, index=True).data
 
@@ -2469,7 +2469,7 @@ index_data = self.sheet.span(slice(None, 3), table=False, index=True).data
 # a row index value
 index_data = self.sheet[3].options(table=False, idisp=False, index=True).data
 
-"sheet data as columns instead of rows, with actual header data"
+# sheet data as columns instead of rows, with actual header data
 sheet_data = self.sheet[:].transpose().options(hdisp=False, header=True).data
 
 # or instead using sheet.span() with only kwargs
